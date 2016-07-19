@@ -1,0 +1,54 @@
+# This is the minimum version number required.
+# Update this, if you use features of a newer version
+fastlane_version "1.97.2"
+
+default_platform :android
+
+platform :android do
+  before_all do
+    # ENV["SLACK_URL"] = "https://hooks.slack.com/services/..."
+  end
+
+  desc "Clean assemble build with checks, test and reports"
+  private_lane :build_app do |options|
+    gradle(task: "clean")
+    assemble(buildNumber: options[:buildNumber])
+    sign_apk(keystore_path: options[:keystore_path], apk_path: options[:apk_path],alias: options[:alias], storepass: options[:storepass], tsa: options[:tsa], signed_apk_path: options[:signed_apk_path], keypass: options[:keypass])
+    zipalign(apk_path: "#{lane_context[SharedValues::SIGNED_APK_PATH]}")
+    #gradle(task: "test connectedAndroidTest")
+    gradle(task: "test")
+  end
+
+  private_lane :assemble do |options|
+    UI.message("Since no build number was specified 0 was used") unless options[:buildNumber]
+
+    assemble_task = "assemble -PbuildNumber=\"#{ options[:buildNumber] ? options[:buildNumber] : "0" }\""
+    gradle(task: assemble_task)
+  end
+
+  desc "Alpha release app. Deploy a new version to the Google Play Store - Alpha channel"
+  lane :alpha do |options|
+    build_app(buildNumber: options[:buildNumber], apk_path: options[:apk_path], alias: options[:alias], storepass: options[:storepass],keystore_path: options[:keystore_path], tsa: options[:tsa], signed_apk_path: options[:signed_apk_path], keypass: options[:keypass])
+  
+  #supply(
+  #    track: 'alpha',
+  #    apk: "#{lane_context[SharedValues::GRADLE_APK_OUTPUT_PATH]}"
+  #  )
+  end
+
+
+  after_all do |lane|
+    # This block is called, only if the executed lane was successful
+
+    # slack(
+    #   message: "Successfully deployed new App Update."
+    # )
+  end
+
+  error do |lane, exception|
+    # slack(
+    #   message: exception.message,
+    #   success: false
+    # )
+  end
+end

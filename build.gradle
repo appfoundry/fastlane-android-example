@@ -1,0 +1,80 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    ext {
+        //LIBS
+        android_support_version = "23.3.0"
+        retrofit2_version = "2.0.2"
+        okhttp3_version = "3.2.0"
+        dagger_version = "2.4"
+        butterknife_version = "8.0.0"
+        timber_version = "4.1.2"
+        retrolamda_version = "3.2.5"
+        rxjava_version = "1.1.3"
+        rxandroid_version = "1.1.0"
+        kotlin_version = "1.0.1-2"
+        rxkotlin_version = "0.55.0"
+        leak_canary_version = "1.4-beta2"
+
+        // TESTING
+        junit_version = "4.12"
+        mockito_version = "2.0.49-beta"
+        robolectric_version = "3.0"
+        espresso_version = "2.2.2"
+        espresso_runner_version = "0.5"
+    }
+
+    ext.libraries = [//APP LIBRARIES
+                     android_support    : "com.android.support:support-v4:$android_support_version",
+                     android_appcompat  : "com.android.support:appcompat-v7:$android_support_version",
+                     design_support     : "com.android.support:design:$android_support_version",
+                     support_annotations: "com.android.support:support-annotations:$android_support_version",
+                     retrofit2          : "com.squareup.retrofit2:retrofit:$retrofit2_version",
+                     retrofit2_gson     : "com.squareup.retrofit2:converter-gson:$retrofit2_version",
+                     retrofit2_rx       : "com.squareup.retrofit2:adapter-rxjava:$retrofit2_version",
+                     dagger             : "com.google.dagger:dagger:$dagger_version",
+                     dagger_compiler    : "com.google.dagger:dagger-compiler:$dagger_version",
+                     okhttp3            : "com.squareup.okhttp3:okhttp:$okhttp3_version",
+                     okhttp3_logger     : "com.squareup.okhttp3:logging-interceptor:$okhttp3_version",
+                     butterknife        : "com.jakewharton:butterknife:$butterknife_version",
+                     timber             : "com.jakewharton.timber:timber:$timber_version",
+                     rxjava             : "io.reactivex:rxjava:$rxjava_version",
+                     rxandroid          : "io.reactivex:rxandroid:$rxandroid_version",
+                     kotlin             : "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version",
+                     rxkotlin           : "io.reactivex:rxkotlin:$rxkotlin_version",
+                     leak_canary        : "com.squareup.leakcanary:leakcanary-android:$leak_canary_version",
+                     leak_canary_release: "com.squareup.leakcanary:leakcanary-android-no-op:$leak_canary_version",
+
+                     // TESTING
+                     junit              : "junit:junit:$junit_version",
+                     mockito            : "org.mockito:mockito-all:$mockito_version",
+                     robolectric        : "org.robolectric:robolectric:$robolectric_version",
+                     espresso           : "com.android.support.test.espresso:espresso-core:$espresso_version",
+                     espresso_runner    : "com.android.support.test:runner:$espresso_runner_version",
+                     espresso_intents   : "com.android.support.test.espresso:espresso-intents:$espresso_version"]
+
+
+    repositories {
+        jcenter()
+        maven { url "https://jitpack.io" }
+        maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:2.1.0'
+        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.4'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "me.tatarka:gradle-retrolambda:$retrolamda_version"
+    }
+}
+
+allprojects {
+    repositories {
+        jcenter()
+        maven { url "https://jitpack.io" }
+        maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
