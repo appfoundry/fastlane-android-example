@@ -6,6 +6,6 @@ If you want to run fastlane for this project there is a few things you have to d
 
 1. [Install fastlane](https://github.com/fastlane/fastlane#installation)
 2. Generate a certificate `keytool -genkey -v -keystore android.jks -alias android-fastlane-example -keyalg RSA -keysize 2048 -validity 10000`
-3. Place the cert if `$HOME/keyvault`
-4. Clone the repo
+3. Place the key-store in `$HOME/keyvault`
+4. Clone the repository
 5. Run fastlane with `fastlane alpha` or `fastlane alpha storepass:'XXXX'`
