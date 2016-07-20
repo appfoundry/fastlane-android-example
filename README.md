@@ -94,6 +94,16 @@ end
 
 The only parameter that is required here is the password to unlock the store. This could be done with a more advanced setup using keychain, with a parameter `fastlane alpha storepass:'abc123!'` or simple by running `fastlane alpha` and waiting until fastlane asks for the password.
 
+## Setting up fastlane
+
+If you want to use fastlane for your Android projects you can find instruction to [install fastlane here](https://github.com/fastlane/fastlane#installation) and how to [setup fastlane here](https://github.com/fastlane/fastlane#quick-start)
+
+If you want to use the scripts discussed in this post simply copy the scripts from [fastlane actions](https://github.com/appfoundry/fastlane-android-example/tree/master/fastlane%20actions) to the `fastlane/ations` folder in your project structure.
+
+## Sample
+
+A sample Android project with the fastlane setup as described above can be found [here](https://github.com/appfoundry/fastlane-android-example/tree/master/sample)
+
 # Summary
 
 Although fastlane is not yet equipped with the same tools for Android as it is for iOS, we enjoyed the experience and will continue to work with fastlane for both iOS and Android in the future. This solution suits our needs. There is always room for improvement. Feel free to recommend improvements or make a pull request!
