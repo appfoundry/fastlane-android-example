@@ -59,8 +59,7 @@ module Fastlane
                                        optional: true),
           FastlaneCore::ConfigItem.new(key: :alias,
                                        env_name: "ALIAS",
-                                       description: "The alias of 
-                                       the certificate in the keystore to use to sign the apk",
+                                       description: "The alias of the certificate in the keystore to use to sign the apk",
                                        is_string: true),
           FastlaneCore::ConfigItem.new(key: :keypass,
                                        env_name: "KEY_PASS",

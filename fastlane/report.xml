@@ -3,47 +3,37 @@
   <testsuite name="fastlane.lanes">
     
       
-      <testcase classname="fastlane.lanes" name="0: Verifying required fastlane version" time="0.000453">
+      <testcase classname="fastlane.lanes" name="0: Verifying required fastlane version" time="0.000461">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="1: default_platform" time="0.00022">
+      <testcase classname="fastlane.lanes" name="1: default_platform" time="0.000194">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="2: Switch to android build_app lane" time="0.000204">
+      <testcase classname="fastlane.lanes" name="2: gradle" time="2.455434">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="3: gradle" time="2.517124">
+      <testcase classname="fastlane.lanes" name="3: gradle" time="13.929956">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="4: Switch to android assemble lane" time="0.000286">
+      <testcase classname="fastlane.lanes" name="4: sign_apk" time="1.046324">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="5: gradle" time="13.371775">
+      <testcase classname="fastlane.lanes" name="5: zipalign" time="0.117482">
         
       </testcase>
     
       
-      <testcase classname="fastlane.lanes" name="6: sign_apk" time="0.897285">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="7: zipalign" time="0.117562">
-        
-      </testcase>
-    
-      
-      <testcase classname="fastlane.lanes" name="8: gradle" time="22.831417">
+      <testcase classname="fastlane.lanes" name="6: gradle" time="24.531359">
         
       </testcase>
     
