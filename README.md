@@ -4,9 +4,9 @@ While improving our continouos delivery system we decided to streamline the proc
 
 If you take a look at the [fastlane](https://fastlane.tools) page you will notice that there are currently only 2 Android tools. `Supply` and `Screengrab`, both neat actions to automate uploading your app to Google play. But we wanted to do some more automating. Before you can upload an app to Google Play you need a signed and zipaligned APK. As most Android developers know building an app ready for uploading it to the store can be tedious. There are a few ways to do so.
 
-    1. Android Studio wizard: Build -> Generate Signed APK
-    2. Running a Gradle task with the proper Gradle setup for signing and zipaligning the APK
-    3. Commandline using `jarsigner` and `zipalign`
+1. Android Studio wizard: Build -> Generate Signed APK
+2. Running a Gradle task with the proper Gradle setup for signing and zipaligning the APK
+3. Commandline using `jarsigner` and `zipalign`
 
 It's immediately obvious that the first option isn't an option in a CI enviroment. That leaves option 2 and 3.
 
