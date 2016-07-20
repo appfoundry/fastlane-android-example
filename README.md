@@ -1,20 +1,20 @@
 # Fastlane Android
 
-While improving our continuous delivery system we decided to streamline the process for iOS and Android. Since our iOS team had good experiences using fastlane we decided to give it a try for Android as well.
+While improving our continuous delivery system we decided to streamline the process for iOS and Android. Since our iOS team enjoyed using fastlane we decided to give it a try for Android as well.
 
-If you take a look at the [fastlane](https://fastlane.tools) page you will notice that there are currently only 2 Android tools. `Supply` and `Screengrab`, both neat actions to automate uploading your app to Google play. But we wanted to do some more automating. Before you can upload an app to Google Play you need a signed and zip-aligned APK. As most Android developers know building an app ready for uploading it to the store can be tedious. There are a few ways to do so.
+If you take a look at the [fastlane](https://fastlane.tools) page you will notice that there are currently only 2 Android tools. `Supply` and `Screengrab`, both neat actions to automate uploading your app to Google play. But we wanted to do some more automating. Before you can upload an app to Google Play you need a signed and zip-aligned APK. As most Android developers know building an app ready for uploading to the store can be tedious. There are a few ways to do so.
 
 1. Android Studio wizard: Build -> Generate Signed APK
 2. Running a Gradle task with Gradle setup to sign and zipalign the APK
 3. Command-line using `jarsigner` and `zipalign`
 
-It's immediately obvious that the first option isn't an option in a CI environment. That leaves option 2 and 3.
+It's immediately obvious that the first option isn't suited for a CI environment. That leaves option 2 and 3.
 
-If you know some scripting and Gradle, you can write some cool scripts that allows you to avoid checking in the key-store and passwords into version control. But this method requires you to do the gradle setup for every project you do.
+If you know some scripting and Gradle, you can write some cool scripts that allows you to avoid checking in the key-store and passwords into version control. But this method requires you to do the Gradle setup for every project you do.
 
-The goal was to streamline the process for iOS and Android so let's take a quick look how they do it. By just taking a quick look at [fastlane](https://fastlane.tools) you'll see that most likely `gym` would be used for building, `snapshot` for taking screenshots and `deliver` for uploading to the App Store. The equivalent of `gym` was missing from the tools in fastlane to achieve our goal. In order to solve this we wrote 2 fastlane actions `sign_apk` and `zipalign`. With these two scripts we were able streamline the process.
+The goal was to streamline the process for iOS and Android so let's take a quick look how they do it. By just taking a quick look at [fastlane](https://fastlane.tools) you'll see that most likely `gym` would be used for building, `snapshot` for taking screenshots and `deliver` for uploading to the App Store. The equivalent of `gym` was missing from the tools in fastlane to achieve our goal. In order to solve this I wrote 2 fastlane actions `sign_apk` and `zipalign`. With these two scripts we were able streamline the process.
 
-If you want to do a `alpha` release to Google Play or iTunes Connect you want to do this by simple triggering `fastlane alpha` so anyone that needs to be able to do this can do this with ease. For both iOS and Android this needs to build the app, sign it and upload it to the Alpha channel of it's store.
+If you want to do a `alpha` release to Google Play or iTunes Connect you want to be able to do this by simple triggering `fastlane alpha` so anyone that needs to be able to do this can do this with ease. For both iOS and Android this needs to build the app, sign it and upload it to the Alpha channel of it's store.
 
 So let's take a look at what goes on under the hood.
 
