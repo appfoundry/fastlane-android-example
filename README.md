@@ -92,7 +92,7 @@ platform :android do
 end
 ```
 
-The only parameter that is required here is the password to unlock the store. This could be done with a more advanced setup using keychain, with a parameter `fastlane alpha storepass:'abc123!' or simple by running `fastlane alpha` and waiting until fastlane asks for the password.
+The only parameter that is required here is the password to unlock the store. This could be done with a more advanced setup using keychain, with a parameter `fastlane alpha storepass:'abc123!'` or simple by running `fastlane alpha` and waiting until fastlane asks for the password.
 
 # Summary
 
