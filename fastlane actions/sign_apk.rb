@@ -12,9 +12,9 @@ module Fastlane
       UI.user_error("Need keystore in order to sign apk") unless params[:keystore_path]
 
       sign_cmd = ["jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1"]
-      sign_cmd << ["-keystore #{params[:keystore_path]}" ] if params[:keystore_path]
-      sign_cmd << ["#{params[:apk_path]}"] if params[:apk_path]
-      sign_cmd << ["#{params[:alias]}"] if params[:alias]
+      sign_cmd << ["-keystore #{params[:keystore_path].shellescape}" ] if params[:keystore_path]
+      sign_cmd << ["#{params[:apk_path].shellescape}"] if params[:apk_path]
+      sign_cmd << ["'#{params[:alias]}'"] if params[:alias]
       sign_cmd << ["-keypass #{params[:keypass] ? params[:keypass] : params[:storepass]}"] if params[:keypass] || params[:storepass]
       sign_cmd << ["-storepass #{params[:storepass]}"] if params[:storepass]
       sign_cmd << ["-tsa #{params[:tsa]}"] if params[:tsa]
