@@ -107,3 +107,7 @@ A sample Android project with the fastlane setup as described above can be found
 # Summary
 
 Although fastlane is not yet equipped with the same tools for Android as it is for iOS, we enjoyed the experience and will continue to work with fastlane for both iOS and Android in the future. This solution suits our needs. There is always room for improvement. Feel free to recommend improvements or make a pull request!
+
+## License
+
+This project is licensed under the terms of the MIT license. See the [LICENSE](LICENSE) file.
