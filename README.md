@@ -1,6 +1,7 @@
 # Important Notice!
 :mega: Hi everyone! Thanks for your interest in our Fastlane Android example.
-Due to a change of direction in how we decided to include Android in our Fastlane setup __**we are no longer maintaining this repository**__.
+
+Due to a change of direction in how we decided to include Android in our Fastlane setup __**we are no longer maintaining this repository**__. Lately we've not been running into any specific cases where the use of these fastlane actions are required, so we're mostly just using Gradle directly. Should this situation change we'll gladly pick this up again but until then there won't be any further work performed by us on this project.
 
 # Fastlane Android
 
