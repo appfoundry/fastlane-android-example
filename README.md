@@ -1,3 +1,7 @@
+# Important Notice!
+:mega: Hi everyone! Thanks for your interest in our Fastlane Android example.
+Due to a change of direction in how we decided to include Android in our Fastlane setup __**we are no longer maintaining this repository**__.
+
 # Fastlane Android
 
 While improving our continuous delivery system we decided to streamline the process for iOS and Android. Since our iOS team enjoyed using fastlane we decided to give it a try for Android as well.
